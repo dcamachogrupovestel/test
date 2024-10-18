@@ -1,0 +1,12 @@
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .content {
+    margin-top: 64px; /* Altura de la toolbar */
+    padding: 16px;
+  }
