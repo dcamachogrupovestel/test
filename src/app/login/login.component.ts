@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit{
   errorMessage: string = '';
 
   constructor(private fb: FormBuilder,
-    private cookieService: CookieService,
+    private authService: AuthService,
     private router: Router
   ){
     this.loginForm = this.fb.group({
@@ -24,6 +25,8 @@ export class LoginComponent implements OnInit{
     });
   }
 
+  ngOnInit(): void {
+  }
   
   /**
    * @name onSubmit
@@ -31,23 +34,13 @@ export class LoginComponent implements OnInit{
    */
   onSubmit(): void {
     const { user, password } = this.loginForm.value;
-    if (user === 'test' && password === 'test') {
-      this.cookieService.set('user', user);
-      this.cookieService.set('password', password);
-      // Enrutar a la lista de tornillos
-      this.router.navigate(['/screws']);
-    }else {
-      this.errorMessage = 'Usuario o contraseña incorrectos';
-    }
-  }
-
-  ngOnInit(): void {
-    // Obtener las cookies al inicializar el componente
-    const user = this.cookieService.get('user');
-    const password = this.cookieService.get('password');
-    if (user && password) {
-      this.loginForm.setValue({ user, password });
-      this.onSubmit;
-    }
+    this.authService.login(user, password);
+    this.authService.userLogin$.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['/screws']);
+      } else {
+        this.errorMessage = 'Usuario o contraseña incorrectos';
+      }
+    });
   }
 }

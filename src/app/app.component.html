@@ -2,7 +2,11 @@
   <ul>
     <li><a href="/">Home</a></li>
   </ul>
-  <button class="right">Iniciar sesion</button>
+  <button type="button" *ngIf="!userLogin" class="right"><a href="/login">Iniciar sesion</a></button>
+  <div *ngIf="userLogin">
+    <p>{{ user }}</p>
+    <button type="button" (click)="clearCookie()">Cerrar sesión</button>
+  </div>
 </nav>
 <div class="content">
   <router-outlet></router-outlet>
