@@ -1,0 +1,28 @@
+h1{
+    margin-left: 10%;
+    font-size: 50px;
+}
+.container {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 400px;
+    height: 200px;
+    background-color: rgb(205, 205, 205);
+    margin-left: 40%;
+}
+
+.btn-success {
+    background-color: #005414; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Alineación del texto */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Color de fondo al pasar el ratón */
+}

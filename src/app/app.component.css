@@ -1,12 +1,57 @@
-.fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
-  
-  .content {
-    margin-top: 64px; /* Altura de la toolbar */
-    padding: 16px;
-  }
+/* Estilos para el navegador */
+.navbar {
+  position: fixed;
+  top: 0;
+  padding: 0 10px;
+  width: 100%;
+  background-color: #fffbfb;
+  overflow: hidden;
+  border: 1px solid rgb(0, 255, 0);
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  display: inline;
+}
+
+.navbar li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #ffffff;
+}
+
+.navbar .right {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  background-color: #4CAF50; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  padding: 14px 20px; /* Espaciado interno del botón */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Mostrar en línea */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.navbar .right:hover {
+  background-color: #45a049; /* Color de fondo al pasar el ratón */
+}
+/* Asegúrate de que el contenido no quede oculto detrás del navegador */
+.content {
+  margin-top: 80px; /* Ajusta este valor según la altura de tu navbar */
+}

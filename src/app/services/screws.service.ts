@@ -7,10 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ScrewsService {
-  private apiUrl = 'https://api.example.com/screws';
+  private apiUrl = 'http://localhost:3000/screws';
 
   constructor(private http: HttpClient) { }
 
+  getScrewsTotal(){
+    return this.http.get(`${this.apiUrl}/total`);
+  }
   /**
    * @name getScrews
    * @param page
