@@ -1,1 +1,37 @@
-<p>screws-list works!</p>
+<div class="container">
+    <h2>Listado de Tornillos</h2>
+    <div class="tableContainer">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Formato</th>
+            <th>Nombre del proveedor</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let screw of screwsList |  paginate: { itemsPerPage: 10, currentPage: page }">
+              <td>{{ screw.name }}</td>
+              <td>{{ screw.price | currency }}</td>
+              <td>{{ screw.format }}</td>
+              <td>{{ screw.providerName }} </td>
+              <td>
+                <button class="btn btn-link p-0" (click)="deleteScrew(screw.id)">
+                  <i class="fas fa-trash-alt text-danger"></i>
+                </button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+    </div>
+  </div>
+
+  <!-- Pie -->
+<div class="footer">
+  <button class="btn primary" (click)="openModal()">
+    <i class="fas fa-plus"></i> Añadir tornillo
+  </button>
+</div>
