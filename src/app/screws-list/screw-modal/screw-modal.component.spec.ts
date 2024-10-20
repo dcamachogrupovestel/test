@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrewsModalComponent } from './screws-modal.component';
+import { ScrewModalComponent } from './screw-modal.component';
 
-describe('ScrewsModalComponent', () => {
-  let component: ScrewsModalComponent;
-  let fixture: ComponentFixture<ScrewsModalComponent>;
+describe('ScrewModalComponent', () => {
+  let component: ScrewModalComponent;
+  let fixture: ComponentFixture<ScrewModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScrewsModalComponent]
+      imports: [ScrewModalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ScrewsModalComponent);
+    fixture = TestBed.createComponent(ScrewModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
