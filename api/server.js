@@ -27,8 +27,8 @@ app.get('/screws', (req, res) => {
 
 // Obtener el total de tornillos
 app.get('/screws/total', (req, res) => {
-  const total = screws.reduce((acc, screw) => acc + screw.quantity, 0);
-  res.json({ total });
+  
+  res.json({ screws});
 });
 
 // Crear un nuevo tornillo
