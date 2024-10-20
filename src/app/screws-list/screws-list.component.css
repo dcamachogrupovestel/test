@@ -32,3 +32,10 @@
   .tableContainer{
     margin-left: 30%;
   }
+
+  .footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid rgb(0, 255, 0);
+  }

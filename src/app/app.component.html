@@ -2,11 +2,8 @@
   <ul>
     <li><a href="/">Home</a></li>
   </ul>
-  <button type="button" *ngIf="!userLogin" class="right"><a href="/login">Iniciar sesion</a></button>
-  <div *ngIf="userLogin">
-    <p>{{ user }}</p>
-    <button type="button" (click)="clearCookie()">Cerrar sesión</button>
-  </div>
+  <button type="btn" *ngIf="!userLogin" class="btn success"><a href="/login">Iniciar sesion</a></button>
+  <button *ngIf="userLogin"class="btn danger" (click)="clearCookie()">{{ user }}<i class="fa fa-sign-in" style="padding-left: 2px;"></i></button>
 </nav>
 <div class="content">
   <router-outlet></router-outlet>

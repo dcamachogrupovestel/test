@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrewsService } from '../services/screws.service';
-import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
  constructor(
   private service: ScrewsService,
   private router: Router,
-  private cookieService: CookieService
+  private authService: AuthService
  ){
  }
 
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
  private getScrewsTotal(){
   this.service.getScrewsTotal().subscribe(
     (data: any) => {
-      this.screws = data.total;
+      this.screws = data.screws.length;
     },
     (error) => {
       console.error('Error fetching screws total:', error);
@@ -39,23 +39,13 @@ export class HomeComponent implements OnInit {
    *  @description Navegar a la lista de tornillos
    */
   public goToScrewsList(): void {
-    let user = this.getUser()
+    let user = this.authService.canActivate();
     if(user){
       this.router.navigate(['/screws']);
     }else{
       this.router.navigate(['/login'])
     }
     
-  }
-
-  /**
-   * @name getUser
-   * @description Comprobar si se ha iniciado sesión
-   */
-  private getUser(): boolean {
-    const user = this.cookieService.get('user');
-    const password = this.cookieService.get('password');
-    return user === 'test' && password === 'test';
   }
 
   /**
