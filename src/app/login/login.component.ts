@@ -2,10 +2,11 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports:  [ReactiveFormsModule],
+  imports:  [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit{
       this.cookieService.set('user', user);
       this.cookieService.set('password', password);
       // Enrutar a la lista de tornillos
-      this.router.navigate(['/screws-list']);
+      this.router.navigate(['/screws']);
     }else {
       this.errorMessage = 'Usuario o contraseña incorrectos';
     }
